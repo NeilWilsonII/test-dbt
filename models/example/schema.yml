@@ -1,0 +1,41 @@
+version: 2
+
+models:
+    - name: CUSTOMER_NATIONALITY_COUNT
+      description: "An aggregation of customer nationality"
+      columns:
+          - name: N_NAME
+            description: "Name of nation"
+            tests:
+            - unique
+            - not_null
+          - name: N_COMMENT
+            description: "Kcomment about nation"
+            tests:
+              - not_null
+          - name: NATIONKEY_COUNT
+            description: "count of customers from this nation"
+            tests:
+              - not_null
+    - name: CUSTOMER_NATIONALITY_VIEW
+      description: "An aggregation of customer nationality"
+      columns:
+          - name: country
+            description: "Name of nation"
+            tests:
+            - unique
+            - not_null
+          - name: country_count
+            description: "count of customers from this country"
+            tests:
+              - not_null
+              - unique
+
+sources:
+  - name: raw
+    description: "raw tables"
+    database: DBT_DEMO_STAGING
+    schema: RAW
+    tables:
+      - name: CUSTOMER
+      - name: NATION
