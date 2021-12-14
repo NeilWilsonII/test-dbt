@@ -17,6 +17,7 @@ models:
             description: "count of customers from this nation"
             tests:
               - not_null
+
     - name: CUSTOMER_NATIONALITY_VIEW
       description: "An aggregation of customer nationality"
       columns:
@@ -29,7 +30,6 @@ models:
             description: "count of customers from this country"
             tests:
               - not_null
-              
 
 sources:
   - name: raw
