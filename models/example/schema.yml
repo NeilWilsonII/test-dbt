@@ -29,7 +29,7 @@ models:
             description: "count of customers from this country"
             tests:
               - not_null
-              
+              - unique
 
 sources:
   - name: raw
